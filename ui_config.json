@@ -1,0 +1,6 @@
+{
+  "ingest_days": 100,
+  "scrape_products": true,
+  "fetch_trends": true,
+  "asin_override": []
+}

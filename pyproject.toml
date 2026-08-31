@@ -1,0 +1,32 @@
+[project]
+name = "marketingproject"
+version = "0.1.0"
+description = "Daily Business Summary Agent - ingest, analyze, summarize Amazon review data"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "beautifulsoup4>=4.14.2",
+    "fastapi>=0.121.2",
+    "google-generativeai>=0.8.5",
+    "httpx>=0.28.1",
+    "huggingface-hub>=1.1.2",
+    "lxml>=6.0.2",
+    "matplotlib>=3.10.7",
+    "numpy>=2.3.4",
+    "pandas>=2.3.3",
+    "plotly>=6.4.0",
+    "polars>=1.35.2",
+    "pyarrow>=22.0.0",
+    "pydantic>=2.12.4",
+    "python-dateutil>=2.9.0.post0",
+    "pytrends>=4.9.2",
+    "requests>=2.32.5",
+    "scikit-learn>=1.7.2",
+    "seaborn>=0.13.2",
+    "sendgrid>=6.12.5",
+    "streamlit>=1.50.0",
+    "tqdm>=4.67.1",
+    "uvicorn>=0.38.0",
+    "vadersentiment>=3.3.2",
+    "wordcloud>=1.9.4",
+]

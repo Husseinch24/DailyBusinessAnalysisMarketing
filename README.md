@@ -10,85 +10,85 @@ The pipeline runs daily and performs:
 
 ## Web Scraping
 
-* Amazon product pages (price, rating, features, BSR, etc.)
+- Amazon product pages (price, rating, features, BSR, etc.)
 
-* Amazon customer reviews
+- Amazon customer reviews
 
-* Google Trends for selected keywords
+- Google Trends for selected keywords
 
 ## Data Ingestion
 
-* Cleans and normalizes timestamps
+- Cleans and normalizes timestamps
 
-* Deduplicates reviews
+- Deduplicates reviews
 
-* Computes VADER sentiment
+- Computes VADER sentiment
 
-* Builds a unified dataset (daily_batch.parquet)
+- Builds a unified dataset (daily_batch.parquet)
 
 ## Analysis Engine
 
 Computes:
 
-* overall metrics
+- overall metrics
 
-* sentiment per product
+- sentiment per product
 
-* top selling products (heuristic score)
+- top selling products (heuristic score)
 
-* campaign risk products
+- campaign risk products
 
-* complaint keywords
+- complaint keywords
 
-* sample reviews
+- sample reviews
 
 ## AI Business Summarization (Gemini)
 
 Generates:
 
-* Daily business summary
+- Daily business summary
 
-* Product intelligence report
+- Product intelligence report
 
-* Outputs Markdown and TXT reports
+- Outputs Markdown and TXT reports
 
 ## Visualization
 
 PNG plots:
 
-* sentiment distribution
+- sentiment distribution
 
-* polarity split
+- polarity split
 
-* top sellers
+- top sellers
 
-* campaign risks
+- campaign risks
 
-* rating distributions
+- rating distributions
 
-* complaint wordcloud
+- complaint wordcloud
 
-* Interactive HTML dashboard (Plotly)
+- Interactive HTML dashboard (Plotly)
 
 ## Notifications
 
-* Slack
+- Slack
 
-* Telegram
+- Telegram
 
-* SendGrid Email (with attachments)
+- SendGrid Email (with attachments)
 
 ## UI Control Panel
 
 Streamlit interface to:
 
-* configure scraping & ingestion
+- configure scraping & ingestion
 
-* choose ASINs
+- choose ASINs
 
-* set notification options
+- set notification options
 
-* launch the pipeline
+- launch the pipeline
 
 # Project Structure
 
@@ -129,13 +129,13 @@ pip install -r requirements.txt
 
 Gemini API
 
-* Set environment variable:
+- Set environment variable:
 
 ```bash
 export GEMINI_API_KEY="your_key_here"
 ```
 
-* or place it in:
+- or place it in:
 
 secrets/gemini_api_key.txt
 
@@ -149,15 +149,15 @@ cp notification_config.example.json notification_config.json
 
 Edit:
 
-* from email
+- from email
 
-* to email
+- to email
 
-* enabled methods
+- enabled methods
 
-* attachment flags
+- attachment flags
 
-* Set SendGrid key:
+- Set SendGrid key:
 
 ```bash
 export SENDGRID_API_KEY="your_sendgrid_key"
@@ -165,83 +165,84 @@ export SENDGRID_API_KEY="your_sendgrid_key"
 
 # Usage
 
-* Run full pipeline:
+- Run full pipeline:
 
 ```bash
 python -m pipeline.run_daily
 ```
 
-* or:
+- or:
 
 ```bash
 bash run_all.sh
 ```
 
-* Run UI:
+- Run UI:
 
 ```bash
 streamlit run ui/app.py
 ```
+
 ## Use the UI to:
 
-* configure scraping
+- configure scraping
 
-* set ASIN list
+- set ASIN list
 
-* enable notifications
+- enable notifications
 
-* launch pipeline
+- launch pipeline
 
 # Outputs
 
 Generated files:
 
 data/
-  daily_batch.parquet
-  daily_metrics.json
+daily_batch.parquet
+daily_metrics.json
 
 reports/
-  daily_business_summary_YYYY-MM-DD.md
-  daily_summary.txt
-  product_intel_YYYY-MM-DD.md
-  dashboard.html
-  plots/*.png
+daily_business_summary_YYYY-MM-DD.md
+daily_summary.txt
+product_intel_YYYY-MM-DD.md
+dashboard.html
+plots/\*.png
 
 # AI Reports (Gemini)
 
 The system generates:
 
-* Executive summaries
+- Executive summaries
 
-* Risk detection
+- Risk detection
 
-* Product momentum analysis
+- Product momentum analysis
 
-* Campaign recommendations
+- Campaign recommendations
 
-* Complaint themes
+- Complaint themes
 
-* Action plans
+- Action plans
 
 # Tech Stack
 
-* Python
+- Python
 
-* Pandas / Polars / NumPy
+- Pandas / Polars / NumPy
 
-* BeautifulSoup
+- BeautifulSoup
 
-* PyTrends
+- PyTrends
 
-* VADER Sentiment
+- VADER Sentiment
 
-* Gemini API (Google Generative AI)
+- Gemini API (Google Generative AI)
 
-* Matplotlib / Seaborn / Plotly
+- Matplotlib / Seaborn / Plotly
 
-* Streamlit
+- Streamlit
 
-* SendGrid API
+- SendGrid API
 
 # Results
 
@@ -257,13 +258,11 @@ This plot shows the distribution of customer ratings for the top-selling product
 
 <img width="1620" height="900" alt="rating_distribution_top_products" src="https://github.com/user-attachments/assets/33c646b1-567e-4374-ac04-692171f6d9dd" />
 
-
 ### Sentiment Distribution (VADER)
 
 This histogram represents the distribution of sentiment scores extracted from customer reviews using the VADER sentiment analyzer, ranging from negative to positive polarity.
 
 <img width="1440" height="720" alt="sentiment_distribution" src="https://github.com/user-attachments/assets/2dd34b37-f5ea-4cdc-8ae4-c2cc5fadd31a" />
-
 
 ### Sentiment vs Rating (Per Product)
 
@@ -272,13 +271,11 @@ It helps identify mismatches between numerical ratings and textual sentiment.
 
 <img width="1260" height="1080" alt="sentiment_vs_rating" src="https://github.com/user-attachments/assets/74b8a80f-54f0-4e48-8f63-03316e33b17a" />
 
-
 ### Top Estimated Sellers
 
 This bar chart ranks products based on an estimated sales score derived from rating count, rating value, and Best Seller Rank (BSR) heuristics.
 
 <img width="1800" height="720" alt="top_selling_products" src="https://github.com/user-attachments/assets/25e99a27-09f7-4b21-99e0-be12a02a55df" />
-
 
 ### Campaign Risk Products
 
@@ -286,13 +283,11 @@ This visualization highlights products with low ratings and negative sentiment t
 
 <img width="1800" height="720" alt="campaign_risk_products" src="https://github.com/user-attachments/assets/86dde436-e2ff-4375-8445-8855cf77d66b" />
 
-
 ### Complaint Themes (Word Cloud)
 
 This word cloud shows the most frequent terms appearing in negative reviews, revealing dominant complaint topics such as product malfunction or unmet expectations.
 
 <img width="900" height="400" alt="complaints_wordcloud" src="https://github.com/user-attachments/assets/6e82aaab-6b47-4ded-82a6-c2c53b6ae4de" />
-
 
 ### Sentiment Polarity Split
 
@@ -300,21 +295,6 @@ This bar chart summarizes the proportion of positive, neutral, and negative revi
 
 <img width="1080" height="720" alt="vader_polarity_split" src="https://github.com/user-attachments/assets/bc5a58b4-f6a0-42e5-b420-ef3baaa3d969" />
 
-
-### Generated Business Reports
-
-The system automatically generates textual business summaries and product intelligence reports in multiple formats:
-
-- [Download Daily Business Summary](reports/daily_business_summary_2025-11-24.md?raw=1)
-- [Download Product Intelligence Report](reports/daily_summary.txt?raw=1)
-- [Download Dashboard](reports/dashboard.html?raw=1)
-
-## Contents:
-
 # Author
 
 Hussein Chalhoub
-
-
-
-

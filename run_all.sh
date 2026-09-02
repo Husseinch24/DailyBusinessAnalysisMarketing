@@ -2,7 +2,7 @@
 set -euo pipefail
 
 # Load Gemini API key (DO NOT hardcode in production)
-export GEMINI_API_KEY="AIzaSyAJP6b2mGy63wA31mGSuSF0u-SCNuKmGfw"
+export GEMINI_API_KEY="YOUR_GEMINI_API_KEY"
 
 echo "Running daily marketing pipeline..."
 
